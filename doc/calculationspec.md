@@ -6,17 +6,23 @@ Below is a list the keys used in the Storm calculations:
 
 #### Generic Persistence Keys
 
-```set:projects```
+```
+set:projects
+```
 
 A simple set of project ids on the selected database.
 
-```set:PROJECT:dimensions```
+```
+set:PROJECT:dimensions
+```
 
 A set of all dimensions declared in a project.
 
 i.e., "visit-useragent", "visit-uuid", "job-skills", etc.
 
-```set:PROJECT:DIMENSION:keys```
+```
+set:PROJECT:DIMENSION:keys
+```
 
 A set of all keys declared for a specific project-dimension.
 
@@ -29,7 +35,11 @@ set:1:visit-uuid:keys
 set:2:job-skills:keys
 ```
 
-Contents of ```set:2:job-skills:keys``` would contain:
+Contents of 
+```
+set:2:job-skills:keys
+``` 
+would contain:
 
 ```
 1) "ruby"
@@ -39,7 +49,9 @@ Contents of ```set:2:job-skills:keys``` would contain:
 5) "android"
 ```
 
-```set:PROJECT:DIMENSION:KEY:calculations```
+```
+set:PROJECT:DIMENSION:KEY:calculations
+```
 
 A set of declared calculations to perform on a specific key.
 
@@ -50,7 +62,11 @@ set:2:job-skills:python:calculations
 
 ```
 
-Contents of ```set:2:job-skills:python:calculations``` would contain:
+Contents of 
+```
+set:2:job-skills:python:calculations
+``` 
+would contain:
 
 ```
 1) "sum"
@@ -61,7 +77,9 @@ Contents of ```set:2:job-skills:python:calculations``` would contain:
 
 ```
 
-```set:PROJECT:DIMENSION:KEY:CALCULATION:intervals```
+```
+set:PROJECT:DIMENSION:KEY:CALCULATION:intervals
+```
 
 A set of declared intervals for calculations.
 
@@ -71,14 +89,20 @@ set:2:job-skills:ruby:sum:intervals
 set:2:job-skills:python:average:intervals
 
 ```
-Contents of ```set:2:job-skills:python:average:intervals``` would contain:
+Contents of 
+```
+set:2:job-skills:python:average:intervals
+``` 
+would contain:
 
 ```
 1) "months"
 2) "weeks"
 ```
 
-```hash:PROJECT:DIMENSION:KEY:values```
+```
+hash:PROJECT:DIMENSION:KEY:values
+```
 
 This is a hash that contains all the values for a declared dimension-key. All keys in the hashmap are timestamps. 
 
@@ -107,17 +131,26 @@ Contents would contain:
 
 #### Calculation Hashmap
 
-```hash:PROJECT:DIMENSION:KEY:CALCULATION:INTERVAL```
+```
+hash:PROJECT:DIMENSION:KEY:CALCULATION:INTERVAL
+```
 
 A hash that contains the calculated value for a given interval for a declared dimension-key.
 
-i.e. ```hash:2:job-skills:python:count:months```
+i.e. 
+```
+hash:2:job-skills:python:count:months
+```
 
 ##### Count & Sum
 
 These calculations use timestamps formatted for their intervals (YYYY, YYYYMM, YYYYMMDD, etc) as their keys.
 
-i.e. ```hash:2:job-skills:python:count:months``` would contain this:
+i.e. 
+```
+hash:2:job-skills:python:count:months
+``` 
+would contain this:
 
 ```
 1) "2014-10"
@@ -129,7 +162,11 @@ i.e. ```hash:2:job-skills:python:count:months``` would contain this:
 
 These calculations just use their calculation name as the key. i.e. average & standard_devation.
 
-The key ```hash:2:job-skills:python:average:months``` would contain this:
+The key 
+```
+hash:2:job-skills:python:average:months
+``` 
+would contain this:
 
 ```
 1) "average"
@@ -140,7 +177,11 @@ The key ```hash:2:job-skills:python:average:months``` would contain this:
 
 This calculation is has unique keys. They are "intercept", "slope", "ci_90", "ci_95", and "ci_99". The "ci_*" keys are short for confidence interval with associated alpha.
 
-The key ```hash:2:job-skills:python:linear_regression:weeks``` would contain the following:
+The key 
+```
+hash:2:job-skills:python:linear_regression:weeks
+``` 
+would contain the following:
 
 ```
 1) "intercept"
